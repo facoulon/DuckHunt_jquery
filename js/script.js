@@ -16,18 +16,23 @@ for (var i = 0; i < 10; i++) {
 //   var duck = document.createElement("div");
 var duck = $("<div>")
 //   duck.style.width = "100px";
-  $duck.css('width', '100px');
+  duck.css('width', '100px');
   // duck.style.height = "100px";
-  $duck.css('height', '100px');
+  duck.css('height', '100px');
   // duck.style.position = "absolute";
-  $duck.css('position', 'absolute');
+  duck.css('position', 'absolute');
   // duck.style.top = "400px";
-  $duck.css('top', '400px');
+  duck.css('top', '400px');
   // duck.style.left = "500px"
+  duck.css('left', '500px');
   // duck.style.transition = "1s";
+  duck.css('transition', '1s');
   // duck.style.backgroundImage = "url('missile.png')"
+  duck.css('backgroundImage', 'url(missile.png)');
   // duck.style.backgroundSize = "contain";
+  duck.css('backgroundSize', 'contain');
   // duck.style.backgroundRepeat = "no-repeat"
+  duck.css('backgroundRepeat', 'no-repeat');
 // battlefield.appendChild(duck)
   battlefield.append(duck);
 }
@@ -39,7 +44,6 @@ var y;
 var ducks = $("div")
 
 function move() {
-
 
   if (Math.random() < 0.25) {
     x = 90;
@@ -57,9 +61,11 @@ function move() {
 
   for (var j = 0; j < 10; j++) {
     var posTop = Math.random() * 80 + 10;
-    ducks[j].style.top = posTop + "%";
+    /*ducks[j].style.top = posTop + "%";*/
+    $(ducks[j]).css('top', posTop + '%');
     var posLeft = Math.random() * 80 + 10;
-    ducks[j].style.left = posLeft + "%";
+    /*ducks[j].style.left = posLeft + "%";*/
+    $(ducks[j]).css('left', posLeft + '%');
   }
 }
 
@@ -68,24 +74,19 @@ var myVar = setInterval(move, 1000);
 var killedDucks = [];
 
 for (var l = 0; l < 10; l++) {
-  ducks[l].addEventListener("click", function() {
-    this.style.backgroundImage = "url('explosion.png')"
-    bruitExplosion.play();
+  /*ducks[l].addEventListener("click", function() {*/
+  $(ducks[l]).click(function() {
+    /*this.style.backgroundImage = "url('explosion.png')"*/
+    $(ducks[l]).css('backgroundImage', 'url(explosion.png)');
+    bruitExplosion.trigger('play')
     killedDucks.push(this);
     setTimeout(function() {
 
       for (var m = 0; m < killedDucks.length; m++) {
-        killedDucks[m].style.visibility = "hidden";
+        /*killedDucks[m].style.visibility = "hidden";*/
+        $(killedDucks[m]).css('visibility', 'hidden')
       }
     }, 1000);
   });
 }
-
-
-
-
-
-
-
-
 });
