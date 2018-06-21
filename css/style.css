@@ -1,0 +1,9 @@
+main {
+  width:1500px;
+  height: 850px;
+  background-color: grey;
+  position: relative;
+  background-image: url("../background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
