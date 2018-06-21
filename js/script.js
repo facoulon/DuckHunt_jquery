@@ -76,12 +76,12 @@ var killedDucks = [];
 for (var l = 0; l < 10; l++) {
   /*ducks[l].addEventListener("click", function() {*/
   $(ducks[l]).click(function() {
-    /*this.style.backgroundImage = "url('explosion.png')"*/
-    $(ducks[l]).css('backgroundImage', 'url(explosion.png)');
+    // this.style.backgroundImage = "url('explosion.png')"
+    $(this).css('backgroundImage', 'url(explosion.png)');
     bruitExplosion.trigger('play')
     killedDucks.push(this);
     setTimeout(function() {
-
+console.log(killedDucks);
       for (var m = 0; m < killedDucks.length; m++) {
         /*killedDucks[m].style.visibility = "hidden";*/
         $(killedDucks[m]).css('visibility', 'hidden')
